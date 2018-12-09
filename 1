@@ -1,0 +1,65 @@
+> [Suggested description]
+> An issue was discovered on KT MC01507L Z-Wave S0 devices.
+> It occurs because HPKP is not implemented.
+> The communication architecture is APP > Server > Controller (HUB) > Node (products which are controlled by HUB).
+> The prerequisite is that the attacker is on the same network as the
+> target HUB, and can use IP Changer to change destination IP addresses (of all
+> packets whose destination IP address is Server) to a proxy-server IP address. This allows
+> sniffing of cleartext between Server and
+> Controller. The cleartext command data is
+> transmitted to Controller using the proxy server's fake
+> certificate, and it is able to control each Node of
+> the HUB. Also, by operating HUB in Z-Wave Pairing Mode, it is possible to obtain the
+> Z-Wave network key.
+> 
+> ------------------------------------------
+> 
+> [Additional Information]
+> The attacker must be in the same network with the target HUB.
+> If the 'Z-Wave network key' is exploited by using this vulnerability, it can be used for attacking Z-Wave.
+> 
+> ------------------------------------------
+> 
+> [Vulnerability Type]
+> Missing SSL Certificate Validation
+> 
+> ------------------------------------------
+> 
+> [Vendor of Product]
+> KT
+> 
+> ------------------------------------------
+> 
+> [Affected Product Code Base]
+> MC01507L - Z Wave S0
+> 
+> ------------------------------------------
+> 
+> [Affected Component]
+> General Function and Z-Wave function of product that can be controlled through server
+> 
+> ------------------------------------------
+> 
+> [Attack Type]
+> Local
+> 
+> ------------------------------------------
+> 
+> [Impact Code execution]
+> true
+> 
+> ------------------------------------------
+> 
+> [Attack Vectors]
+> We can control the device by using our prepared proxy server and client server to run MITM with ARP spoofing and IP changer.
+> 
+> ------------------------------------------
+> 
+> [Discoverer]
+> WYP
+> 
+> ------------------------------------------
+> 
+> [Reference]
+> https://products.z-wavealliance.org/products/1870
+
